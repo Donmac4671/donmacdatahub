@@ -1,0 +1,72 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #020617;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 420px;
+  margin: 50px auto;
+  background: #0f172a;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+h1 {
+  text-align: center;
+  color: #22c55e;
+}
+
+.tagline {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-top: 12px;
+  display: block;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #22c55e;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16a34a;
+}
+
+.note {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+.whatsapp {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  background: #25d366;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}

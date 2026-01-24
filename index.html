@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Donmac Data Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Donmac Data Hub</h1>
+    <p class="tagline">Affordable MTN & Telecel Data Bundles</p>
+
+    <form id="paymentForm">
+
+      <label>Phone Number (Data will be sent here)</label>
+      <input type="tel" id="phone" placeholder="0549358359" required>
+
+      <label>Select Network</label>
+      <select id="network" required>
+        <option value="">-- Choose Network --</option>
+        <option value="MTN">MTN</option>
+        <option value="Telecel">Telecel</option>
+      </select>
+
+      <label>Select Data Bundle</label>
+      <select id="bundle" required>
+        <option value="">-- Select Bundle --</option>
+      </select>
+
+      <button type="submit">Pay Now</button>
+    </form>
+
+    <p class="note">
+      After successful payment, your data will be sent shortly.
+    </p>
+
+    <a class="whatsapp" href="https://wa.me/233549358359" target="_blank">
+      Chat on WhatsApp
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
