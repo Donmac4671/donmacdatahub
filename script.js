@@ -61,7 +61,7 @@ document.getElementById("paymentForm").addEventListener("submit", function (e) {
   PaystackPop.setup({
     key: "pk_live_6c14e62b602fe818a0433130f1db628a98731304",
     email: "customer@donmacdatahub.com",
-    amount: amount * 400,
+    amount: amount * 100,
     currency: "GHS",
     ref: "DONMAC_" + Math.floor(Math.random() * 1000000000),
 
@@ -84,4 +84,5 @@ document.getElementById("paymentForm").addEventListener("submit", function (e) {
       alert("Payment cancelled");
     }
   }).openIframe();
+
 });
