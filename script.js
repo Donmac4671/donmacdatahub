@@ -1,4 +1,4 @@
-    const bundles = {
+const bundles = {
   MTN: [
     { name: "1GB", price: 5 },
     { name: "2GB", price: 10 },
@@ -47,7 +47,7 @@ form.addEventListener("submit", function (e) {
   }
 
   PaystackPop.setup({
-    key: "pk_live_6c14e62b602fe818a0433130f1db628a98731304",
+    key: "pk_live_6c14e62b602fe818a0433130f1db628a98731304", 
     email: "orders@donmacdatahub.com",
     amount: bundle.price * 100,
     currency: "GHS",
@@ -75,4 +75,3 @@ form.addEventListener("submit", function (e) {
     }
   }).openIframe();
 });
-
