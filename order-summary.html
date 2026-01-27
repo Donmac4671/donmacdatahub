@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Summary – Donmac Data Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h2>✅ Thank you for making an order</h2>
+  <p class="tagline">
+    Your data is being processed. Please find your order details below.
+  </p>
+
+  <hr>
+
+  <div id="summary"></div>
+
+  <button onclick="downloadReceipt()">Download Order Details</button>
+  <button onclick="newOrder()">Make Another Order</button>
+
+</div>
+
+<script>
+const order = JSON.parse(localStorage.getItem("donmac_order"));
+const box = document.getElementById("summary");
+
+if (!order) {
+  box.innerHTML = "<p>No order details found.</p>";
+} else {
+  box.innerHTML = `
+    <p><strong>Network:</strong> ${order.network}</p>
+    <p><strong>Data Bundle:</strong> ${order.bundle}</p>
+    <p><strong>Amount Paid:</strong> ¢${order.amount}</p>
+    <p><strong>Send Data To:</strong> ${order.recipient}</p>
+    <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
+    <p><strong>Reference:</strong> ${order.reference}</p>
+    <p><strong>Date:</strong> ${order.date}</p>
+  `;
+}
+
+function downloadReceipt() {
+  const text = `
+DONMAC DATA HUB – ORDER DETAILS
+
+Network: ${order.network}
+Data Bundle: ${order.bundle}
+Amount Paid: ¢${order.amount}
+Send Data To: ${order.recipient}
+Payment Method: ${order.paymentMethod}
+Reference: ${order.reference}
+Date: ${order.date}
+`;
+
+  const blob = new Blob([text], { type: "text/plain" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "donmac-order.txt";
+  a.click();
+}
+
+function newOrder() {
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
