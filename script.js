@@ -41,9 +41,12 @@ networkSelect.addEventListener("change", () => {
   if (!selectedNetwork) return;
 
   bundles[selectedNetwork].forEach(bundle => {
+    const fee = Math.round(bundle.price * 0.0195 * 100) / 100;
+    const totalAmount = bundle.price + fee;
+
     const option = document.createElement("option");
     option.value = JSON.stringify(bundle);
-    option.textContent = `${bundle.name} - ¢${bundle.price}`;
+    option.textContent = `${bundle.name} - ¢${totalAmount.toFixed(2)}`;
     bundleSelect.appendChild(option);
   });
 });
@@ -60,17 +63,20 @@ form.addEventListener("submit", function (e) {
     return;
   }
 
+  const fee = Math.round(bundle.price * 0.0195 * 100) / 100;
+  const totalAmount = bundle.price + fee;
+
   PaystackPop.setup({
-    key: "pk_live_6c14e62b602fe818a0433130f1db628a98731304", 
+    key: "pk_live_6c14e62b602fe818a0433130f1db628a98731304",
     email: "orders@donmacdatahub.com",
-    amount: bundle.price * 100,
+    amount: Math.round(totalAmount * 100),
     currency: "GHS",
 
     metadata: {
       custom_fields: [
         { display_name: "Network", value: network },
         { display_name: "Data Bundle", value: bundle.name },
-        { display_name: "Amount", value: `¢${bundle.price}` },
+        { display_name: "Amount", value: `¢${totalAmount.toFixed(2)}` },
         { display_name: "Send Data To", value: phone }
       ]
     },
@@ -79,7 +85,7 @@ form.addEventListener("submit", function (e) {
       const order = {
         network: network,
         bundle: bundle.name,
-        amount: bundle.price,
+        amount: totalAmount.toFixed(2),
         recipient: phone,
         paymentMethod: "Mobile Money (Paystack)",
         reference: response.reference,
