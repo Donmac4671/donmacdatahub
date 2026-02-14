@@ -41,12 +41,9 @@ networkSelect.addEventListener("change", () => {
   if (!selectedNetwork) return;
 
   bundles[selectedNetwork].forEach(bundle => {
-    const fee = Math.round(bundle.price * 0.0195 * 100) / 100;
-    const totalAmount = bundle.price + fee;
-
     const option = document.createElement("option");
     option.value = JSON.stringify(bundle);
-    option.textContent = `${bundle.name} - ¢${totalAmount.toFixed(2)}`;
+    option.textContent = `${bundle.name} - ¢${bundle.price}`;
     bundleSelect.appendChild(option);
   });
 });
